@@ -12,7 +12,7 @@ import streamlit as st
 
 
 
-loaded_model = pickle.load(open('/Users/GraceTee/trained_cancer_model.sav', 'rb'))
+loaded_model = pickle.load(open('trained_cancer_model.sav', 'rb'))
 
 #Creating a prediction function 
 
