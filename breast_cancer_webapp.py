@@ -11,24 +11,9 @@ import pickle
 import streamlit as st
 import requests
 
-url = "https://github.com/gracet33/breastcancerprediction/raw/f95608315ff0e4e7d0f807ab898b2835a7aed139/trained_cancer_model.sav"
 
-response = requests.get(url)
+loaded_model = pickle.load(open("trained_cancer_model.sav", "rb"))
 
-if response.status_code == 200:
-    # File contents are stored in the response's content attribute
-    file_contents = response.content
-
-    # Save the file locally
-    with open("trained_cancer_model.sav", "wb") as file:
-        file.write(file_contents)
-    print("File downloaded successfully.")
-
-    # Load the model using pickle
-    loaded_model = pickle.load(open("trained_cancer_model.sav", "rb"))
-    # Now you can use the loaded_model for predictions or further processing
-else:
-    print("Failed to download the file from GitHub.")
     
 
 #Creating a prediction function 
